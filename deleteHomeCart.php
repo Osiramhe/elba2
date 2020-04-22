@@ -1,0 +1,14 @@
+<?php
+session_start();
+require"db-conn.php";
+$id=$_GET['id'];
+$sql = "DELETE FROM addcart WHERE id = $id";
+
+if ($conn->query($sql) === TRUE) {
+    header("Location:index.php?Deleted successfully");
+} else {
+    echo "Error deleting record: " . $conn->error;
+}
+
+
+?>
